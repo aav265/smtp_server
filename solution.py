@@ -2,7 +2,7 @@ from socket import *
 
 
 def smtp_client(port=1025, mailserver='127.0.0.1'):
-    msg = "\r\n My message"
+    msg = "\r\n My message\r\n"
     endmsg = "\r\n.\r\n"
 
     # Choose a mail server (e.g. Google mail server) if you want to verify the script beyond GradeScope
@@ -29,7 +29,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send MAIL FROM command and handle server response.
     # Fill in start
-    clientSocket.send('MAIL FROM:<>\r\n'.encode())
+    clientSocket.send('MAIL FROM:<aav265@nyu.edu>\r\n'.encode())
     recv2 = clientSocket.recv(1024).decode()
     if recv2[:3] != '250':
         print('250 reply not received from server.')
@@ -37,7 +37,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send RCPT TO command and handle server response.
     # Fill in start
-    clientSocket.send('RCPT TO:<>\r\n'.encode())
+    clientSocket.send('RCPT TO:<aav265@nyu.edu>\r\n'.encode())
     recv3 = clientSocket.recv(1024).decode()
     if recv3[:3] != '250':
         print('250 reply not received from server.')
